@@ -1,5 +1,8 @@
-package com.lianer.common.language;
+package com.lianer.common.utils.language;
 
+/**
+ * Created by lx on 2017/5/2.
+ */
 
 public class OnChangeLanguageEvent {
     public int languageType;

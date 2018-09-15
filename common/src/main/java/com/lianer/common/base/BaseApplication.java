@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
+import com.lianer.common.utils.Utils;
+import com.lianer.common.utils.language.MultiLanguageUtil;
+
 public class BaseApplication extends Application {
 
     private static BaseApplication sInstance;
@@ -12,6 +15,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
+
+        Utils.init(this);
 
         //注册监听每个activity的生命周期,便于堆栈式管理
         registerActivityLifecycleCallbacks(mCallbacks);

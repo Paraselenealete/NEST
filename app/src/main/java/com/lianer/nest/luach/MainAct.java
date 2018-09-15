@@ -1,5 +1,7 @@
 package com.lianer.nest.luach;
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lianer.common.utils.language.MultiLanguageUtil;
 import com.lianer.nest.R;
 import com.lianer.nest.borrow.BorrowFrag;
 import com.lianer.nest.contract.ContractFrag;
@@ -20,6 +23,7 @@ import com.lianer.nest.wallet.WalletFrag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * 主界面
@@ -90,6 +94,9 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
+
+                Intent intent = new Intent(MainAct.this, GuideAct.class);
+                startActivity(intent);
                 break;
             case R.id.ly_second:
                 if (mCurrentIndex != 1) {
@@ -140,5 +147,10 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
             }
             mCurrentIndex = mSelectIndex;
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguageUtil.attachBaseContext(newBase));
     }
 }

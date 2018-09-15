@@ -1,4 +1,4 @@
-package com.lianer.common.language;
+package com.lianer.common.utils.language;
 
 
 import android.content.Context;

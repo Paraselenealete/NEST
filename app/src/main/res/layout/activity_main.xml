@@ -36,7 +36,7 @@
                     android:id="@+id/img_bottom_first"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_main" />
+                    android:src="@drawable/selector_invest" />
 
                 <TextView
                     android:id="@+id/tx_bottom_first"
@@ -63,7 +63,7 @@
                     android:id="@+id/img_bottom_second"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/select_tab_pin" />
+                    android:src="@drawable/select_borrow" />
 
                 <TextView
                     android:id="@+id/tx_bottom_second"
@@ -90,7 +90,7 @@
                     android:id="@+id/img_bottom_third"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/select_card" />
+                    android:src="@drawable/select_contract" />
 
                 <TextView
                     android:id="@+id/tx_bottom_third"
@@ -118,7 +118,7 @@
                     android:id="@+id/img_bottom_fourth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_mine" />
+                    android:src="@drawable/selector_wallet" />
 
                 <TextView
                     android:id="@+id/tx_bottom_fourth"

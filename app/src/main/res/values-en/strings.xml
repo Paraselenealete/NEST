@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NEST</string>
+
+    <string name="invest">invest</string>
+    <string name="borrow">borrow</string>
+    <string name="contract">contract</string>
+    <string name="wallet">wallet</string>
+
+</resources>

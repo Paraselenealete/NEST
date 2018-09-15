@@ -1,4 +1,4 @@
-package com.lianer.common.language;
+package com.lianer.common.utils.language;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -8,8 +8,6 @@ import android.os.Build;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
 import android.util.Log;
-
-import com.lianer.common.R;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -112,17 +110,17 @@ public class MultiLanguageUtil {
         EventBus.getDefault().post(new OnChangeLanguageEvent(languageType));
     }
 
-    public String getLanguageName(Context context) {
-        int languageType = CommSharedUtil.getInstance(context).getInt(MultiLanguageUtil.SAVE_LANGUAGE,LanguageType.LANGUAGE_FOLLOW_SYSTEM);
-        if (languageType == LanguageType.LANGUAGE_EN) {
-            return mContext.getString(R.string.setting_language_english);
-        } else if (languageType == LanguageType.LANGUAGE_CHINESE_SIMPLIFIED) {
-            return mContext.getString(R.string.setting_simplified_chinese);
-        } else if (languageType == LanguageType.LANGUAGE_CHINESE_TRADITIONAL) {
-            return mContext.getString(R.string.setting_traditional_chinese);
-        }
-        return mContext.getString(R.string.setting_language_auto);
-    }
+//    public String getLanguageName(Context context) {
+//        int languageType = CommSharedUtil.getInstance(context).getInt(MultiLanguageUtil.SAVE_LANGUAGE,LanguageType.LANGUAGE_FOLLOW_SYSTEM);
+//        if (languageType == LanguageType.LANGUAGE_EN) {
+//            return mContext.getString(R.string.setting_language_english);
+//        } else if (languageType == LanguageType.LANGUAGE_CHINESE_SIMPLIFIED) {
+//            return mContext.getString(R.string.setting_simplified_chinese);
+//        } else if (languageType == LanguageType.LANGUAGE_CHINESE_TRADITIONAL) {
+//            return mContext.getString(R.string.setting_traditional_chinese);
+//        }
+//        return mContext.getString(R.string.setting_language_auto);
+//    }
 
     /**
      * 获取到用户保存的语言类型

@@ -1,5 +1,8 @@
-package com.lianer.common.language;
+package com.lianer.common.utils.language;
 
+/**
+ * Created by lx on 17-11-6.
+ */
 
 public class LanguageType {
     public static final int LANGUAGE_FOLLOW_SYSTEM = 0; //跟随系统

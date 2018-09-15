@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <com.lianer.nest.custom.TitlebarView
+        android:id="@+id/titlebar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="借币" />
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/clr_F5F5F5"
+        app:centerTitle="@string/borrow"
+        app:centerTextColor="@color/clr_666666"
+        app:leftDrawble="@drawable/main_true"
+        app:rightDrawable="@drawable/main_true"
+        app:rightText="@string/wallet"
+        />
 
 </LinearLayout>
