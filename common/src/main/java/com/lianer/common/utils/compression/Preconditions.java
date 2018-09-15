@@ -1,4 +1,4 @@
-package utils.compression;
+package com.lianer.common.utils.compression;
 
 import android.support.annotation.Nullable;
 

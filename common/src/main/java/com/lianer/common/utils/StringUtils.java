@@ -1,4 +1,4 @@
-package utils;
+package com.lianer.common.utils;
 
 /**
  * Created by goldze on 2017/5/14.

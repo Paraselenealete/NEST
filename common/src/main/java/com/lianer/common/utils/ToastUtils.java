@@ -1,4 +1,4 @@
-package utils;
+package com.lianer.common.utils;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;

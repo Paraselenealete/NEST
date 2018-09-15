@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">NEST</string>
+
+    <string name="invest">投资</string>
+    <string name="borrow">借币</string>
+    <string name="contract">合约</string>
+    <string name="wallet">钱包</string>
+
 </resources>

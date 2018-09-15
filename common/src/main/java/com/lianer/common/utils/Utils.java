@@ -1,4 +1,4 @@
-package utils;
+package com.lianer.common.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

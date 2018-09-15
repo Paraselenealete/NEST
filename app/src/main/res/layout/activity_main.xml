@@ -3,34 +3,152 @@
 
     <data>
 
-        <variable
-            name="user"
-            type="com.lianer.nest.User" />
+        <!--<variable-->
+            <!--name="user"-->
+            <!--type="com.lianer.nest.User" />-->
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.lastName}"
-            />
+        <LinearLayout
+            android:id="@+id/main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true"
+            android:background="@color/clr_F5F5F5"
+            android:baselineAligned="true"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.firstName}"
-            android:background="@drawable/gradient_btn"
-            />
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ly_first"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="?android:attr/selectableItemBackground"
+                >
 
-    <com.hjm.bottomtabbar.BottomTabBar>
-    </com.hjm.bottomtabbar.BottomTabBar>
+                <ImageView
+                    android:id="@+id/img_bottom_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/selector_main" />
+
+                <TextView
+                    android:id="@+id/tx_bottom_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/invest"
+                    android:textColor="@color/clr_999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_second"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="?android:attr/selectableItemBackground"
+                >
+
+                <ImageView
+                    android:id="@+id/img_bottom_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/select_tab_pin" />
+
+                <TextView
+                    android:id="@+id/tx_bottom_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/borrow"
+                    android:textColor="@color/clr_999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_third"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="?android:attr/selectableItemBackground"
+                >
+
+                <ImageView
+                    android:id="@+id/img_bottom_third"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/select_card" />
+
+                <TextView
+                    android:id="@+id/tx_bottom_third"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/contract"
+                    android:textColor="@color/clr_999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_fourth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="?android:attr/selectableItemBackground"
+                >
+
+
+                <ImageView
+                    android:id="@+id/img_bottom_fourth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/selector_mine" />
+
+                <TextView
+                    android:id="@+id/tx_bottom_fourth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/wallet"
+                    android:textColor="@color/clr_999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/main_bottom"
+            android:background="@color/clr_EBEBEB" />
+
+        <LinearLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/line"
+            android:orientation="vertical" />
+
+
+    </RelativeLayout>
+
 
 </layout>
