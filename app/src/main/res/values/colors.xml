@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="clr_059EFF">#059EFF</color>
+    <color name="clr_00BDFD">#00BDFD</color>
+
+    <color name="clr_F5222D">#F5222D</color>
+    <color name="clr_42B09D">#42B09D</color>
+    <color name="clr_F87962">#F87962</color>
+
+    <color name="clr_111111">#111111</color>
+    <color name="clr_666666">#666666</color>
+    <color name="clr_999999">#999999</color>
+    <color name="clr_CCCCCC">#CCCCCC</color>
+    <color name="clr_DDDDDD">#DDDDDD</color>
+    <color name="clr_EBEBEB">#EBEBEB</color>
+    <color name="clr_F5F5F5">#F5F5F5</color>
+
+    <!--
+    主色
+    #059EFF 流程，功能方面的背景&文字
+    #00BDFD 重点标签or文字用色
+
+    辅色
+    #F5222D 价格等，需要突出的信息
+    #42B09D 审核过程和部分按钮用色
+    #F87962 部分按钮用色和点缀色使用
+
+    灰度
+    #111111 主要文字色
+    #666666 主要文字色
+    #999999 次要/说明性文字色
+    #CCCCCC 说明文字色
+    #DDDDDD 边框、分割线（深）
+    #EBEBEB 边框、分割线（浅）
+    #F5F5F5 背景色
+    -->
+</resources>
