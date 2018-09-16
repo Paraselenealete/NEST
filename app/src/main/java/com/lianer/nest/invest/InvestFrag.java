@@ -29,8 +29,6 @@ public class InvestFrag extends BaseFragment {
     protected void initData() {
         super.initData();
         TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
-        titlebarView.setTitleSize(20);
-        titlebarView.setLeftDrawable(R.drawable.back_left);
         titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
             @Override
             public void leftClick() {

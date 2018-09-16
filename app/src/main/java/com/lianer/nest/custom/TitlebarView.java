@@ -15,6 +15,10 @@ import android.widget.TextView;
 
 import com.lianer.nest.R;
 
+/**
+ * 标题栏自定义
+ * @author allison
+ */
 public class TitlebarView extends RelativeLayout {
     private TextView tv_title, tv_right;
     private ImageView iv_left, iv_right;
@@ -79,7 +83,6 @@ public class TitlebarView extends RelativeLayout {
     }
 
     private void initView(View view) {
-
         tv_title = view.findViewById(R.id.tv_title);
         tv_right = view.findViewById(R.id.tv_right);
         iv_left = view.findViewById(R.id.iv_left);
@@ -88,6 +91,27 @@ public class TitlebarView extends RelativeLayout {
 
     public void setOnViewClick(onViewClick click) {
         mClick = click;
+    }
+
+    //设置左边返回按钮的显示与隐藏
+    public void showLeftDrawable() {
+        if (iv_left != null) {
+            iv_left.setVisibility(View.VISIBLE);
+        }
+    }
+
+    //设置右边显示的控件  0:右边按钮 1:右边文字
+    public void setRightWidgetVisible(int flag) {
+        switch (flag) {
+            case 0:
+                if (iv_right != null)
+                    iv_right.setVisibility(View.VISIBLE);
+                break;
+            case 1:
+                if (tv_right != null)
+                    tv_right.setVisibility(VISIBLE);
+                break;
+        }
     }
 
     //设置标题

@@ -8,12 +8,8 @@
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        android:background="@color/clr_F5F5F5"
+        android:background="@android:color/white"
         app:centerTitle="@string/borrow"
-        app:centerTextColor="@color/clr_666666"
-        app:leftDrawble="@drawable/main_true"
-        app:rightDrawable="@drawable/main_true"
-        app:rightText="@string/wallet"
         />
 
 </LinearLayout>

@@ -6,4 +6,8 @@
     <string name="contract">合约</string>
     <string name="wallet">钱包</string>
 
+    <string name="nest">NEST</string>
+    <string name="my_contract">我的合约</string>
+    <string name="my_wallet">我的钱包</string>
+
 </resources>
