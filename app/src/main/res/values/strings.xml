@@ -10,4 +10,24 @@
     <string name="my_contract">我的合约</string>
     <string name="my_wallet">我的钱包</string>
 
+    <!--dialog-->
+    <string name="input_wallet_psd">请输入钱包密码</string>
+    <string name="input_wallet_psd_warn">为了验证您的身份，请输入钱包密码</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="i_know">我知道了</string>
+    <string name="deploy_warn">部署合约所需费用将会从您钱包的相应资产类型余额中直接打入合约，请确保您的钱包中有足够的余额\n若钱包余额不足，请从其他钱包转入</string>
+    <string name="deploy_contract_cost">部署合约费用</string>
+    <string name="dont_screenshot">请勿截图</string>
+    <string name="dont_screenshot_warn">请确保四周无人及无任何摄像头\n勿用截图或拍照保存，有被盗风险</string>
+    <string name="asset_profile">资产简介</string>
+    <string name="project_name">项目名称</string>
+    <string name="brief_introduction">简介</string>
+    <string name="token_address">Token地址：</string>
+    <string name="qunqun_describe">QunQun是基于区块链的激励型社区平台。在QunQun上，人们可以无需任何编码和部署即可轻松创建属于自己的主题社区。</string>
+    <string name="select_project">查询项目</string>
+    <string name="copy_token_address">复制Token地址</string>
+    <string name="sure_stop_contract">确定终止合约</string>
+    <string name="stop_contract_warn">合约已部署成功，若中途终止以支付宝的Gas不会被返还</string>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.lianer.nest.lauch;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -13,11 +14,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lianer.common.utils.ToastUtils;
 import com.lianer.common.utils.language.MultiLanguageUtil;
 import com.lianer.nest.R;
 import com.lianer.nest.borrow.BorrowFrag;
 import com.lianer.nest.contract.ContractFrag;
+import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.databinding.ActivityMainBinding;
+import com.lianer.nest.dialog.DeployContractCostDialog;
+import com.lianer.nest.dialog.InputWalletPswDialog;
 import com.lianer.nest.invest.InvestFrag;
 import com.lianer.nest.wallet.WalletFrag;
 
@@ -83,6 +88,7 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
         mTransaction.commit();
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -104,6 +110,12 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
+                new DeployContractCostDialog(new CenterDialog(R.layout.dlg_asset_profile, MainAct.this), new DeployContractCostDialog.BtnListener() {
+                    @Override
+                    public void iKnow() {
+                        ToastUtils.showLong("我知道了");
+                    }
+                });
                 break;
             case R.id.ly_third:
                 if (mCurrentIndex != 2) {
