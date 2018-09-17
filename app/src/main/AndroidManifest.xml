@@ -18,15 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".luach.LauchAct">
+        <activity android:name=".lauch.LauchAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".luach.MainAct" />
-        <activity android:name=".luach.GuideAct" />
+        <activity android:name=".lauch.MainAct" />
+        <activity android:name=".lauch.GuideAct" />
     </application>
 
 </manifest>

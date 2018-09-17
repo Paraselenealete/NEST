@@ -1,4 +1,4 @@
-package com.lianer.nest.luach;
+package com.lianer.nest.lauch;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +23,6 @@ import com.lianer.nest.wallet.WalletFrag;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * 主界面

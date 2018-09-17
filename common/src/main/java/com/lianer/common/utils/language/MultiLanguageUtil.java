@@ -15,7 +15,6 @@ import java.util.Locale;
 
 /**
  * 多语言切换的帮助类
- * http://blog.csdn.net/finddreams
  */
 public class MultiLanguageUtil {
 

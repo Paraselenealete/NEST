@@ -1,19 +1,12 @@
-package com.lianer.nest.luach;
+package com.lianer.nest.lauch;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.lianer.common.base.BaseActivity;
-import com.lianer.common.common.LanguageType;
-import com.lianer.common.utils.Utils;
 import com.lianer.common.utils.language.MultiLanguageUtil;
 import com.lianer.nest.R;
-
-import java.util.Locale;
 
 
 /**
