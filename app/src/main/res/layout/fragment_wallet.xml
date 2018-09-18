@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <com.lianer.nest.custom.TitlebarView
         android:id="@+id/titlebar"
@@ -10,7 +11,44 @@
         android:layout_height="@dimen/dp_50"
         android:background="@android:color/white"
         app:centerTitle="@string/wallet"
-        app:rightDrawable="@drawable/main_true"
+        app:rightDrawable="@drawable/setting"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wallet_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_20"
+            >
+
+            <!--<ImageView-->
+                <!--android:id="@+id/wallet_logo"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/main_true"-->
+                <!--android:layout_margin="@dimen/dp_20"-->
+                <!--/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="ETH wallet"-->
+                <!--android:layout_toRightOf="@id/wallet_logo"-->
+                <!--android:layout_toEndOf="@id/wallet_logo"-->
+                <!--/>-->
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
 
 </LinearLayout>

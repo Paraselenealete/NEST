@@ -14,10 +14,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initViews();
+        initData();
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(MultiLanguageUtil.attachBaseContext(newBase));
     }
+
+    protected abstract void initViews();
+
+    protected abstract void initData();
 }

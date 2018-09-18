@@ -41,4 +41,14 @@ public class GuideAct extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }

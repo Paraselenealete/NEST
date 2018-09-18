@@ -8,7 +8,6 @@
         android:id="@+id/iv_left"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="?android:attr/selectableItemBackground"
         android:paddingLeft="@dimen/dp_20"
         android:paddingRight="@dimen/dp_20"
         android:src="@drawable/back_left"
@@ -43,7 +42,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="?android:attr/selectableItemBackground"
         android:paddingLeft="@dimen/dp_20"
         android:paddingRight="@dimen/dp_20"
         android:visibility="gone" />

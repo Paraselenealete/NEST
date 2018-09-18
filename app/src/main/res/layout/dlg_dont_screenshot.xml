@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
-        android:src="@drawable/main_true"
+        android:src="@mipmap/ic_launcher"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="@dimen/dp_15"

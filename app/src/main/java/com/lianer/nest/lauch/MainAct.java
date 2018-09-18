@@ -25,6 +25,7 @@ import com.lianer.nest.dialog.DeployContractCostDialog;
 import com.lianer.nest.dialog.InputWalletPswDialog;
 import com.lianer.nest.invest.InvestFrag;
 import com.lianer.nest.wallet.WalletFrag;
+import com.lianer.nest.wallet.WalletGuideAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,9 +100,8 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
-
-                Intent intent = new Intent(MainAct.this, GuideAct.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(MainAct.this, GuideAct.class);
+                startActivity(intent1);
                 break;
             case R.id.ly_second:
                 if (mCurrentIndex != 1) {
@@ -110,12 +110,8 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
-                new DeployContractCostDialog(new CenterDialog(R.layout.dlg_asset_profile, MainAct.this), new DeployContractCostDialog.BtnListener() {
-                    @Override
-                    public void iKnow() {
-                        ToastUtils.showLong("我知道了");
-                    }
-                });
+                Intent intent2 = new Intent(MainAct.this, WalletGuideAct.class);
+                startActivity(intent2);
                 break;
             case R.id.ly_third:
                 if (mCurrentIndex != 2) {

@@ -15,6 +15,11 @@ import java.util.Locale;
 
 /**
  * 多语言切换的帮助类
+ * 使用demo
+ * MultiLanguageUtil.getInstance().updateLanguage(com.lianer.common.utils.language.LanguageType.LANGUAGE_EN);
+ Intent intent = new Intent(GuideAct.this, MainAct.class);
+ intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+ startActivity(intent);
  */
 public class MultiLanguageUtil {
 

@@ -37,12 +37,10 @@ public class InvestFrag extends BaseFragment {
 
             @Override
             public void rightTextClick() {
-                Toast.makeText(getContext(),"右边文字",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void rightImgClick() {
-                Toast.makeText(getContext(),"右边",Toast.LENGTH_SHORT).show();
             }
 
         });

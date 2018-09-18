@@ -29,5 +29,34 @@
     <string name="copy_token_address">复制Token地址</string>
     <string name="sure_stop_contract">确定终止合约</string>
     <string name="stop_contract_warn">合约已部署成功，若中途终止以支付宝的Gas不会被返还</string>
+    <string name="no_create_wallet">您还没有创建钱包</string>
+    <string name="no_create_wallet_warn">请您创建或导入钱包后继续使用NEST的投资与借币服务</string>
+    <string name="create_new_wallet">创建新的钱包</string>
+    <string name="import_wallet">导入已有的钱包</string>
+    <string name="create_wallet_warn_1">* 密码用于保护您的私钥以及交易授权，强度非常重要</string>
+    <string name="create_wallet_warn_2">* NEST 不存储任何用户密码，也无法帮忙找回，请务必记牢</string>
+    <string name="set_password">请设置密码</string>
+    <string name="reinput_psd">请重复密码</string>
+    <string name="agreement">我已经阅读并同意用户服务协议及隐私条款</string>
+    <string name="create_wallet">创建钱包</string>
+    <string name="backup_wallet">备份钱包</string>
+    <string name="backup_1">1、备份钱包：</string>
+    <string name="backup_2">2、使用钱包：</string>
+    <string name="backup_warn">请立即备份您的钱包</string>
+    <string name="backup_wallet_1_des">导出【助记词】之后，用纸清晰抄写，并保存到安全的地方，请不要保存在网络上。 当您遗忘密码或丢失私钥时，可以使用助记词回复钱包！</string>
+    <string name="backup_wallet_2_des">可以尝试转入、转出小额资产并开始使用</string>
+    <string name="immediately_backup">立即备份</string>
+    <string name="backup_mnemonic">备份助记词</string>
+    <string name="mnemonic_warn">助记词用于恢复钱包或重置钱包密码\n请将其清晰准确抄在纸上，并安全保存在只有你知道的地方！</string>
+    <string name="mnemonic_next">我已正确抄写，下一步</string>
+    <string name="please_copy_mnemonic">请抄写您的助记词</string>
+    <string name="title_activity_confirm_mnemonic">ConfirmMnemonicAct</string>
+    <string name="confirm_mnemonic">确认助记词</string>
+    <string name="validate_mnemonic">请验证您的助记词</string>
+    <string name="confirm_mnemonic_warn">为了确保您的助记词备份正确，请按照抄写顺序点击助记词</string>
+    <string name="reset">重置</string>
+    <string name="impor_wallet">导入钱包</string>
+
+    <!--钱包-->
 
 </resources>

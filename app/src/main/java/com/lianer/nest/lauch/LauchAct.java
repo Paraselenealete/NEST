@@ -27,4 +27,14 @@ public class LauchAct extends BaseActivity {
             }
         }, 1000);
     }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }
