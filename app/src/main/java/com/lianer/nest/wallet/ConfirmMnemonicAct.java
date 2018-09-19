@@ -12,6 +12,7 @@ import com.lianer.common.base.BaseActivity;
 import com.lianer.common.base.QuickAdapter;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.common.utils.ToastUtils;
+import com.lianer.common.utils.Utils;
 import com.lianer.nest.R;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityConfirmMnemonicBinding;
@@ -30,7 +31,9 @@ public class ConfirmMnemonicAct extends BaseActivity {
     private ActivityConfirmMnemonicBinding confirmMnemonicBinding;
     private String mnemonics;
     private List<String> mnemonicData = new ArrayList<>();
+    private List<String> mnemonicRandomData = new ArrayList<>();
     private List<String> mnemonicSelectData = new ArrayList<>();
+    private List<Boolean> mnemonicImgVisible = new ArrayList<>();
     private QuickAdapter quickAdapter;
     private int selectIndex;
 
@@ -70,13 +73,20 @@ public class ConfirmMnemonicAct extends BaseActivity {
         if (selectIndex != 0) {
             selectIndex = 0;
             mnemonicSelectData.clear();
+            mnemonicImgVisible.clear();
+            for (int i = 0; i < mnemonicRandomData.size(); i++) {
+                mnemonicImgVisible.add(i, false);
+            }
         }
-        Collections.shuffle(mnemonicData);
+        Collections.shuffle(mnemonicRandomData);
         quickAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * 初始化recyclerView
+     */
     private void initRecyclerView() {
-        quickAdapter = new QuickAdapter<String>(mnemonicData) {
+        quickAdapter = new QuickAdapter<String>(mnemonicRandomData) {
             @Override
             public int getLayoutId(int viewType) {
                 return R.layout.item_mnemonic;
@@ -84,14 +94,29 @@ public class ConfirmMnemonicAct extends BaseActivity {
 
             @Override
             public void convert(VH holder, String data, int position) {
+                if (mnemonicImgVisible.size() != 0) {
+                    boolean isVisible = mnemonicImgVisible.get(position);
+                    holder.getView(R.id.select_index).setVisibility(isVisible ? View.VISIBLE : View.GONE);
+                }
+
                 holder.setText(R.id.singel_mnemonic, data);
                 holder.getView(R.id.rl_item_mnemonic).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (!mnemonicIsEexist(data)) {
                             mnemonicSelectData.add(selectIndex, data);
+                            mnemonicImgVisible.add(selectIndex, true);
                             holder.setImage(R.id.select_index, R.drawable.add_assets);
                             selectIndex++;
+                        }
+                        if (mnemonicSelectData.size() == 12) {
+                            if (Utils.eqList(mnemonicSelectData, mnemonicData)) {
+                                //执行创建钱包流程
+                                createWallet();
+                            } else {
+                                resetMnemonic();
+                            }
+
                         }
                     }
                 });
@@ -147,6 +172,7 @@ public class ConfirmMnemonicAct extends BaseActivity {
         if (!TextUtils.isEmpty(mnemonics)) {
             String[] mnemonicArray = mnemonics.split(" ");
             Collections.addAll(mnemonicData, mnemonicArray);
+            Collections.addAll(mnemonicRandomData, mnemonicArray);
             resetMnemonic();
         }
     }
@@ -157,6 +183,9 @@ public class ConfirmMnemonicAct extends BaseActivity {
         selectIndex = 0;
         if (mnemonicData.size() != 0) {
             mnemonicData.clear();
+        }
+        if (mnemonicRandomData.size() != 0) {
+            mnemonicRandomData.clear();
         }
         if (mnemonicSelectData.size() != 0) {
             mnemonicSelectData.clear();
