@@ -23,10 +23,12 @@
             android:layout_marginTop="@dimen/dp_20">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/wallet_bg"
-                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_20"
                 />
 
             <ImageView
@@ -82,8 +84,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/clr_DDDDDD"
-                android:paddingTop="@dimen/dp_20"
+                android:background="@color/clr_EBEBEB"
                 android:layout_below="@id/wallet_address"
                 android:layout_marginTop="@dimen/dp_10"
                 >
@@ -92,20 +93,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableRight="@drawable/add_assets"
+                    android:drawableEnd="@drawable/add_assets"
                     android:text="@string/add_assets"
-                    android:layout_gravity="right"
-                    android:drawablePadding="@dimen/dp_5"
+                    android:layout_gravity="end"
+                    android:drawablePadding="@dimen/dp_10"
                     android:textColor="@color/clr_059EFF"
                     android:textSize="12sp"
-                    android:layout_marginRight="@dimen/dp_35"
-                    android:layout_marginEnd="@dimen/dp_35"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:paddingTop="@dimen/dp_20"
+                    android:paddingBottom="@dimen/dp_20"
                     />
 
-                <LinearLayout
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_wallet_assets"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/clr_42B09D"
-                    android:layout_marginTop="@dimen/dp_20"></LinearLayout>
+                    />
 
             </LinearLayout>
 

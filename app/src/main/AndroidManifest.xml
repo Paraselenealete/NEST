@@ -26,13 +26,15 @@
         </activity>
         <activity android:name=".lauch.MainAct" />
         <activity android:name=".lauch.GuideAct" />
-        <activity android:name=".mvvmdemo.MvvmActivity" />
         <activity android:name=".wallet.WalletGuideAct" />
         <activity android:name=".wallet.CreateWalletAct" />
         <activity android:name=".wallet.BackupWalletAct" />
         <activity android:name=".wallet.MnemonicAct" />
         <activity android:name=".wallet.ConfirmMnemonicAct" />
-        <activity android:name=".wallet.ImportWalletAct"></activity>
+        <activity android:name=".wallet.ImportWalletAct" />
+        <activity android:name=".wallet.WalletManagerAct" />
+        <activity android:name=".wallet.LanguageSwitchAct" />
+        <activity android:name=".wallet.UpdatePsdAct"></activity>
     </application>
 
 </manifest>

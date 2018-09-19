@@ -61,6 +61,19 @@
     <string name="mnemonic_validate_error">验证失败，请确认您的助记词顺序是否正确</string>
     <string name="mnemonic_validate_success">验证成功，请妥善保管好好您的助记词</string>
     <string name="validate_success">验证成功</string>
+    <string name="wallet_manager">钱包管理</string>
+    <string name="update_psd">修改密码</string>
+    <string name="other_setting">其他设置</string>
+    <string name="export_keystore">导出 Keystore</string>
+    <string name="language_switch">多语言选择</string>
+    <string name="simplified_chinese">简体中文</string>
+    <string name="delete_wallet">删除钱包</string>
+    <string name="sure_delete_wallet">确定删除钱包</string>
+    <string name="delete_wallet_warn">此操作无法撤销！\n删除后可以重新输入，请确保您已备份好钱包</string>
+    <string name="delete">删除</string>
+    <string name="english">English</string>
+    <string name="complete">完成</string>
+    <string name="language_setting">多语言设置</string>
 
     <!--钱包-->
 

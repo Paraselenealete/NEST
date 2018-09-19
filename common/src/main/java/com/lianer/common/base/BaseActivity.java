@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.lianer.common.common.LanguageType;
-import com.lianer.common.utils.Utils;
 import com.lianer.common.utils.language.MultiLanguageUtil;
 
 public abstract class BaseActivity extends AppCompatActivity {
