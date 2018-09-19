@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:background="@android:color/white"
-            app:centerTitle="@string/impor_wallet"
+            app:centerTitle="@string/import_wallet"
             app:leftDrawble="@drawable/back_left" />
 
     </LinearLayout>

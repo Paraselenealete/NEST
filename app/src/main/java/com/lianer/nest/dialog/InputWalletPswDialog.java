@@ -2,7 +2,9 @@ package com.lianer.nest.dialog;
 
 
 import android.app.Dialog;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lianer.nest.R;
@@ -21,6 +23,7 @@ import com.lianer.nest.R;
 public class InputWalletPswDialog implements View.OnClickListener {
     private Dialog mDialog;
     private BtnListener mListener;
+    private EditText inputPsd;
 
     public InputWalletPswDialog(Dialog mDialog, BtnListener listener) {
         this.mListener = listener;
@@ -31,6 +34,7 @@ public class InputWalletPswDialog implements View.OnClickListener {
     private void __init() {
         mDialog.setCancelable(true);
         mDialog.setCanceledOnTouchOutside(false);
+        inputPsd = mDialog.findViewById(R.id.dg_wallet_psd);
         TextView tvCancle = mDialog.findViewById(R.id.cancel);
         TextView tvSure = mDialog.findViewById(R.id.sure);
 
@@ -54,6 +58,14 @@ public class InputWalletPswDialog implements View.OnClickListener {
                 break;
         }
 
+    }
+
+    /**
+     * 获取输入框密码
+     * @return
+     */
+    public String getWalletPsd() {
+        return inputPsd.getText().toString().trim();
     }
 
     public interface BtnListener {

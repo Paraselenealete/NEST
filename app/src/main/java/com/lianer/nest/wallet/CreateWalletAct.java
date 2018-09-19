@@ -66,9 +66,7 @@ public class CreateWalletAct extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!TextUtils.isEmpty(s)) {
-                    isPsd = true;
-                }
+                isPsd = !TextUtils.isEmpty(s);
                 setCreateWalletEnable(isPsd && isRepsd);
             }
 
@@ -85,9 +83,7 @@ public class CreateWalletAct extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!TextUtils.isEmpty(s)) {
-                    isRepsd = true;
-                }
+                isRepsd = !TextUtils.isEmpty(s);
                 setCreateWalletEnable(isPsd && isRepsd);
             }
 
@@ -120,14 +116,6 @@ public class CreateWalletAct extends BaseActivity {
     }
 
     private boolean validateInput(String password, String repassword) {
-        if (TextUtils.isEmpty(password)){
-            ToastUtils.showShort("密码不能为空");
-            return false;
-        }
-        if (TextUtils.isEmpty(repassword)){
-            ToastUtils.showShort("请重新输入密码");
-            return false;
-        }
         if (!TextUtils.equals(password,repassword)){
             ToastUtils.showShort("两次密码不一致");
             return false;

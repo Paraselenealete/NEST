@@ -12,8 +12,10 @@ import com.lianer.common.base.BaseActivity;
 import com.lianer.common.base.QuickAdapter;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.nest.R;
+import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityMnemonicBinding;
+import com.lianer.nest.dialog.KnowDialog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +59,21 @@ public class MnemonicAct extends BaseActivity {
             }
         });
         initRecyclerView();
+        initDialog();
+    }
+
+    /**
+     * 初始化截图警告弹出框
+     */
+    private void initDialog() {
+        new KnowDialog(new CenterDialog(R.layout.dlg_dont_screenshot, MnemonicAct.this),
+                new KnowDialog.BtnListener() {
+                    @Override
+                    public void iKnow() {
+                    }
+                },
+                getResources().getString(R.string.dont_screenshot),
+                getResources().getString(R.string.dont_screenshot_warn));
     }
 
     @Override

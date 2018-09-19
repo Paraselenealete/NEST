@@ -14,8 +14,11 @@ import com.lianer.common.utils.SPUtils;
 import com.lianer.common.utils.ToastUtils;
 import com.lianer.common.utils.Utils;
 import com.lianer.nest.R;
+import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityConfirmMnemonicBinding;
+import com.lianer.nest.dialog.InputWalletPswDialog;
+import com.lianer.nest.dialog.KnowDialog;
 import com.lianer.nest.lauch.MainAct;
 import com.lianer.nest.manager.WalletManager;
 import com.lianer.nest.wallet.bean.WalletBean;
@@ -26,16 +29,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ */
 public class ConfirmMnemonicAct extends BaseActivity {
 
     private ActivityConfirmMnemonicBinding confirmMnemonicBinding;
     private String mnemonics;
-    private List<String> mnemonicData = new ArrayList<>();
-    private List<String> mnemonicRandomData = new ArrayList<>();
-    private List<String> mnemonicSelectData = new ArrayList<>();
-    private List<Boolean> mnemonicImgVisible = new ArrayList<>();
+    private List<String> mnemonicData = new ArrayList<>();//原助记词
+    private List<String> mnemonicRandomData = new ArrayList<>();//随机化助记词
+    private List<String> mnemonicSelectData = new ArrayList<>();//选择助记词
+    private List<Boolean> mnemonicImgVisible = new ArrayList<>();//助记词选中状态
     private QuickAdapter quickAdapter;
-    private int selectIndex;
+    private int selectIndex;//助记词选择索引
 
     @Override
     protected void initViews() {
@@ -66,6 +72,17 @@ public class ConfirmMnemonicAct extends BaseActivity {
         initRecyclerView();
     }
 
+    @Override
+    protected void initData() {
+        mnemonics = SPUtils.getInstance().getString("mnemonics");
+        if (!TextUtils.isEmpty(mnemonics)) {
+            String[] mnemonicArray = mnemonics.split(" ");
+            Collections.addAll(mnemonicData, mnemonicArray);
+            Collections.addAll(mnemonicRandomData, mnemonicArray);
+            resetMnemonic();
+        }
+    }
+
     /**
      * 重置助记词的顺序
      */
@@ -78,6 +95,8 @@ public class ConfirmMnemonicAct extends BaseActivity {
                 mnemonicImgVisible.add(i, false);
             }
         }
+        setResetEnable(false);
+        confirmMnemonicBinding.mnemonicErrorWarn.setVisibility(View.INVISIBLE);
         Collections.shuffle(mnemonicRandomData);
         quickAdapter.notifyDataSetChanged();
     }
@@ -97,6 +116,8 @@ public class ConfirmMnemonicAct extends BaseActivity {
                 if (mnemonicImgVisible.size() != 0) {
                     boolean isVisible = mnemonicImgVisible.get(position);
                     holder.getView(R.id.select_index).setVisibility(isVisible ? View.VISIBLE : View.GONE);
+                    //当用户点击1个单词后，重置按钮变可点击状态
+                    setResetEnable(true);
                 }
 
                 holder.setText(R.id.singel_mnemonic, data);
@@ -111,10 +132,15 @@ public class ConfirmMnemonicAct extends BaseActivity {
                         }
                         if (mnemonicSelectData.size() == 12) {
                             if (Utils.eqList(mnemonicSelectData, mnemonicData)) {
-                                //执行创建钱包流程
-                                createWallet();
+                                new KnowDialog(new CenterDialog(R.layout.dlg_messge_warn, ConfirmMnemonicAct.this), new KnowDialog.BtnListener() {
+                                    @Override
+                                    public void iKnow() {
+                                        //执行创建钱包流程
+                                        createWallet();
+                                    }
+                                }, getString(R.string.validate_success), getResources().getString(R.string.mnemonic_validate_success));
                             } else {
-                                resetMnemonic();
+                                confirmMnemonicBinding.mnemonicErrorWarn.setVisibility(View.VISIBLE);
                             }
 
                         }
@@ -130,6 +156,14 @@ public class ConfirmMnemonicAct extends BaseActivity {
         confirmMnemonicBinding.rvMnemonic.setAdapter(quickAdapter);
         //设置增加或删除条目的动画
         confirmMnemonicBinding.rvMnemonic.setItemAnimator( new DefaultItemAnimator());
+    }
+
+    /**
+     * 设置重置按钮可点击状态
+     * @param b
+     */
+    private void setResetEnable(boolean b) {
+        confirmMnemonicBinding.reset.setEnabled(b);
     }
 
     /**
@@ -166,16 +200,6 @@ public class ConfirmMnemonicAct extends BaseActivity {
         }
     }
 
-    @Override
-    protected void initData() {
-        mnemonics = SPUtils.getInstance().getString("mnemonics");
-        if (!TextUtils.isEmpty(mnemonics)) {
-            String[] mnemonicArray = mnemonics.split(" ");
-            Collections.addAll(mnemonicData, mnemonicArray);
-            Collections.addAll(mnemonicRandomData, mnemonicArray);
-            resetMnemonic();
-        }
-    }
 
     @Override
     protected void onDestroy() {
@@ -189,6 +213,9 @@ public class ConfirmMnemonicAct extends BaseActivity {
         }
         if (mnemonicSelectData.size() != 0) {
             mnemonicSelectData.clear();
+        }
+        if (mnemonicImgVisible.size() != 0) {
+            mnemonicImgVisible.clear();
         }
     }
 }

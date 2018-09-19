@@ -35,7 +35,10 @@
         android:background="@drawable/input_wallet_psd_et_bg"
         android:hint="@string/input_wallet_psd"
         android:inputType="textVisiblePassword"
-        android:padding="@dimen/dp_7" />
+        android:singleLine="true"
+        android:padding="@dimen/dp_7"
+        android:maxLength="32"
+        />
 
     <View
         android:layout_width="match_parent"
