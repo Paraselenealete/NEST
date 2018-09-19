@@ -35,18 +35,22 @@
             android:textColor="@color/clr_999999"
             android:textSize="14sp" />
 
-        <LinearLayout
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_mnemonic"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_250"
-            android:layout_margin="@dimen/dp_30"
-            android:background="@color/clr_DDDDDD"></LinearLayout>
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_20"
+            android:paddingRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_30"
+            />
 
         <TextView
             android:id="@+id/reset"
             android:layout_width="@dimen/dp_300"
             android:layout_height="@dimen/dp_50"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_70"
             android:background="@drawable/gradient_oval_btn"
             android:gravity="center"
             android:text="@string/reset"

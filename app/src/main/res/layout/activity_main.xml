@@ -15,7 +15,7 @@
         <LinearLayout
             android:id="@+id/main_bottom"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50"
+            android:layout_height="@dimen/dp_60"
             android:layout_alignParentBottom="true"
             android:background="@color/clr_F5F5F5"
             android:baselineAligned="true"

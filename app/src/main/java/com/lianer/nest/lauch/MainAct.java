@@ -14,16 +14,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lianer.common.utils.ToastUtils;
 import com.lianer.common.utils.language.MultiLanguageUtil;
 import com.lianer.nest.R;
 import com.lianer.nest.borrow.BorrowFrag;
 import com.lianer.nest.contract.ContractFrag;
-import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.databinding.ActivityMainBinding;
-import com.lianer.nest.dialog.DeployContractCostDialog;
-import com.lianer.nest.dialog.InputWalletPswDialog;
 import com.lianer.nest.invest.InvestFrag;
+import com.lianer.nest.wallet.CreateWalletAct;
 import com.lianer.nest.wallet.WalletFrag;
 import com.lianer.nest.wallet.WalletGuideAct;
 
@@ -100,8 +97,6 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
-                Intent intent1 = new Intent(MainAct.this, GuideAct.class);
-                startActivity(intent1);
                 break;
             case R.id.ly_second:
                 if (mCurrentIndex != 1) {
@@ -110,8 +105,8 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
                     return;
                 }
                 changeFragment();
-                Intent intent2 = new Intent(MainAct.this, WalletGuideAct.class);
-                startActivity(intent2);
+                Intent intent1 = new Intent(MainAct.this, WalletGuideAct.class);
+                startActivity(intent1);
                 break;
             case R.id.ly_third:
                 if (mCurrentIndex != 2) {

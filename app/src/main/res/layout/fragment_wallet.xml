@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.lianer.nest.custom.TitlebarView
@@ -11,39 +11,105 @@
         android:layout_height="@dimen/dp_50"
         android:background="@android:color/white"
         app:centerTitle="@string/wallet"
-        app:rightDrawable="@drawable/setting"
-        />
+        app:rightDrawable="@drawable/setting" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/wallet_bg"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dp_20"
-            >
+            android:layout_marginTop="@dimen/dp_20">
 
-            <!--<ImageView-->
-                <!--android:id="@+id/wallet_logo"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/main_true"-->
-                <!--android:layout_margin="@dimen/dp_20"-->
-                <!--/>-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_bg"
+                android:layout_centerHorizontal="true"
+                />
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="ETH wallet"-->
-                <!--android:layout_toRightOf="@id/wallet_logo"-->
-                <!--android:layout_toEndOf="@id/wallet_logo"-->
-                <!--/>-->
+            <ImageView
+                android:id="@+id/wallet_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_15"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/dp_125"
+                android:layout_marginStart="@dimen/dp_125"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="ETH wallet"
+                android:textColor="@color/clr_F5F5F5"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/dp_45"
+                android:layout_marginRight="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_40"
+                android:src="@drawable/qr_code" />
+
+            <TextView
+                android:id="@+id/wallet_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="0x0Fa6e34E...5E29D96D9d"
+                android:textColor="@color/clr_F5F5F5"
+                android:textSize="14sp"
+                android:drawableEnd="@drawable/copy"
+                android:drawableRight="@drawable/copy"
+                android:drawablePadding="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_130"
+                android:layout_marginEnd="@dimen/dp_45"
+                android:layout_marginRight="@dimen/dp_45"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/clr_DDDDDD"
+                android:paddingTop="@dimen/dp_20"
+                android:layout_below="@id/wallet_address"
+                android:layout_marginTop="@dimen/dp_10"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/add_assets"
+                    android:text="@string/add_assets"
+                    android:layout_gravity="right"
+                    android:drawablePadding="@dimen/dp_5"
+                    android:textColor="@color/clr_059EFF"
+                    android:textSize="12sp"
+                    android:layout_marginRight="@dimen/dp_35"
+                    android:layout_marginEnd="@dimen/dp_35"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/clr_42B09D"
+                    android:layout_marginTop="@dimen/dp_20"></LinearLayout>
+
+            </LinearLayout>
 
         </RelativeLayout>
-
 
 
 

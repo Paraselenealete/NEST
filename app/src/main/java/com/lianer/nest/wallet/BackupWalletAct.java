@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.view.View;
 
 import com.lianer.common.base.BaseActivity;
+import com.lianer.common.utils.ToastUtils;
 import com.lianer.nest.R;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityBackupWalletBinding;
@@ -42,6 +43,7 @@ public class BackupWalletAct extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BackupWalletAct.this, MnemonicAct.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

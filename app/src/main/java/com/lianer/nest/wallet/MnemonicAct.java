@@ -2,12 +2,22 @@ package com.lianer.nest.wallet;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.lianer.common.base.BaseActivity;
+import com.lianer.common.base.QuickAdapter;
+import com.lianer.common.utils.SPUtils;
 import com.lianer.nest.R;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityMnemonicBinding;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 备份助记词
@@ -16,6 +26,8 @@ import com.lianer.nest.databinding.ActivityMnemonicBinding;
 public class MnemonicAct extends BaseActivity {
 
     private ActivityMnemonicBinding mnemonicBinding;
+    private List<String> mnemonicData = new ArrayList<>();
+    private QuickAdapter quickAdapter;
 
     @Override
     protected void initViews() {
@@ -44,10 +56,38 @@ public class MnemonicAct extends BaseActivity {
                 startActivity(intent);
             }
         });
+        initRecyclerView();
     }
 
     @Override
     protected void initData() {
+        String mnemonics = SPUtils.getInstance().getString("mnemonics");
+        if (!TextUtils.isEmpty(mnemonics)) {
+            String[] mnemonicArray = mnemonics.split(" ");
+            Collections.addAll(mnemonicData, mnemonicArray);
+            quickAdapter.notifyDataSetChanged();
+        }
+    }
 
+    private void initRecyclerView() {
+        quickAdapter = new QuickAdapter<String>(mnemonicData) {
+            @Override
+            public int getLayoutId(int viewType) {
+                return R.layout.item_mnemonic;
+            }
+
+            @Override
+            public void convert(VH holder, String data, int position) {
+                holder.setText(R.id.singel_mnemonic, data);
+            }
+
+        };
+        LinearLayoutManager layoutManager = new GridLayoutManager(MnemonicAct.this , 3);
+        //设置布局管理器
+        mnemonicBinding.rvMnemonic.setLayoutManager(layoutManager);
+        //设置Adapter
+        mnemonicBinding.rvMnemonic.setAdapter(quickAdapter);
+        //设置增加或删除条目的动画
+        mnemonicBinding.rvMnemonic.setItemAnimator( new DefaultItemAnimator());
     }
 }

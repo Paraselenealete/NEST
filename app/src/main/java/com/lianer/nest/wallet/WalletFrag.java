@@ -28,6 +28,12 @@ public class WalletFrag extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
+
+        initTitleBar();
+
+    }
+
+    private void initTitleBar() {
         TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
         titlebarView.setRightWidgetVisible(0);
         titlebarView.setOnViewClick(new TitlebarView.onViewClick() {

@@ -69,6 +69,7 @@
             android:layout_marginEnd="@dimen/dp_15">
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -82,6 +83,7 @@
                 android:paddingRight="@dimen/dp_10"
                 android:paddingEnd="@dimen/dp_10"
                 android:textSize="14sp"
+                android:maxLength="32"
                 />
 
             <View
@@ -103,6 +105,7 @@
             android:layout_marginEnd="@dimen/dp_15">
 
             <EditText
+                android:id="@+id/repassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -116,6 +119,7 @@
                 android:paddingRight="@dimen/dp_10"
                 android:paddingEnd="@dimen/dp_10"
                 android:textSize="14sp"
+                android:maxLength="32"
                 />
 
             <View
@@ -151,7 +155,8 @@
             android:text="@string/create_wallet"
             android:textColor="@color/clr_F5F5F5"
             android:textSize="18sp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:enabled="true"/>
 
 
     </LinearLayout>
