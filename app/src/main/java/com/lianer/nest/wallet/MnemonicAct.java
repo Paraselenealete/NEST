@@ -12,6 +12,7 @@ import com.lianer.common.base.BaseActivity;
 import com.lianer.common.base.QuickAdapter;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.nest.R;
+import com.lianer.nest.app.Constants;
 import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityMnemonicBinding;
@@ -78,7 +79,7 @@ public class MnemonicAct extends BaseActivity {
 
     @Override
     protected void initData() {
-        String mnemonics = SPUtils.getInstance().getString("mnemonics");
+        String mnemonics = SPUtils.getInstance().getString(Constants.SP_MNEMONICS);
         if (!TextUtils.isEmpty(mnemonics)) {
             String[] mnemonicArray = mnemonics.split(" ");
             Collections.addAll(mnemonicData, mnemonicArray);

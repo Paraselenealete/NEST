@@ -2,26 +2,18 @@ package com.lianer.nest.wallet;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.nfc.Tag;
-import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Toast;
 
 import com.lianer.common.base.BaseActivity;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.common.utils.ToastUtils;
 import com.lianer.nest.R;
+import com.lianer.nest.app.Constants;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityCreateWalletBinding;
 import com.lianer.nest.manager.WalletManager;
-
-import org.web3j.crypto.WalletFile;
-
-import io.reactivex.Flowable;
 
 /**
  * 创建钱包
@@ -30,7 +22,6 @@ import io.reactivex.Flowable;
 public class CreateWalletAct extends BaseActivity {
 
     private ActivityCreateWalletBinding createWalletBinding;
-    private String mnemonics;
     private boolean isPsd, isRepsd;
 
     @Override
@@ -52,12 +43,7 @@ public class CreateWalletAct extends BaseActivity {
             }
 
         });
-        createWalletBinding.createWallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createWallet();
-            }
-        });
+        createWalletBinding.createWallet.setOnClickListener(v -> createWallet());
         createWalletBinding.password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -103,21 +89,20 @@ public class CreateWalletAct extends BaseActivity {
         String repassword = createWalletBinding.repassword.getText().toString().trim();
 
         if (validateInput(password, repassword)) {
-            mnemonics = WalletManager.shared().generateMnemonics();
+            String  mnemonics = WalletManager.shared().generateMnemonics();
             if (mnemonics != null) {
-                SPUtils.getInstance().put("mnemonics", mnemonics);
-                SPUtils.getInstance().put("password", password);
+                SPUtils.getInstance().put(Constants.SP_MNEMONICS, mnemonics);
+                SPUtils.getInstance().put(Constants.SP_WALLET_PASSWORD, password);
                 Intent intent = new Intent(CreateWalletAct.this, BackupWalletAct.class);
-                intent.putExtra("mnemonics", mnemonics);
+                intent.putExtra(Constants.SP_MNEMONICS, mnemonics);
                 startActivity(intent);
-                finish();
             }
         }
     }
 
     private boolean validateInput(String password, String repassword) {
         if (!TextUtils.equals(password,repassword)){
-            ToastUtils.showShort("两次密码不一致");
+            ToastUtils.showShort(R.string.second_psd_not_match);
             return false;
         }
         return true;

@@ -14,15 +14,17 @@ import com.lianer.common.utils.SPUtils;
 import com.lianer.common.utils.ToastUtils;
 import com.lianer.common.utils.Utils;
 import com.lianer.nest.R;
+import com.lianer.nest.app.Constants;
 import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityConfirmMnemonicBinding;
-import com.lianer.nest.dialog.InputWalletPswDialog;
 import com.lianer.nest.dialog.KnowDialog;
 import com.lianer.nest.lauch.MainAct;
 import com.lianer.nest.manager.WalletManager;
+import com.lianer.nest.wallet.bean.WalletAddrEventBean;
 import com.lianer.nest.wallet.bean.WalletBean;
 
+import org.greenrobot.eventbus.EventBus;
 import org.web3j.crypto.CipherException;
 
 import java.util.ArrayList;
@@ -40,11 +42,15 @@ public class ConfirmMnemonicAct extends BaseActivity {
     private List<String> mnemonicRandomData = new ArrayList<>();//随机化助记词
     private List<String> mnemonicSelectData = new ArrayList<>();//选择助记词
     private List<Boolean> mnemonicImgVisible = new ArrayList<>();//助记词选中状态
+    private int iamges[] = {R.drawable.point_1,R.drawable.point_2,R.drawable.point_3,R.drawable.point_4,R.drawable.point_5,
+            R.drawable.point_6,R.drawable.point_7,R.drawable.point_8,R.drawable.point_9,R.drawable.point_10,R.drawable.point_11,
+            R.drawable.point_12};//角标图片
     private QuickAdapter quickAdapter;
     private int selectIndex;//助记词选择索引
 
     @Override
     protected void initViews() {
+//        EventBus.getDefault().register(this);
         confirmMnemonicBinding = DataBindingUtil.setContentView(this, R.layout.activity_confirm_mnemonic);
         confirmMnemonicBinding.titlebar.showLeftDrawable();
         confirmMnemonicBinding.titlebar.setOnViewClick(new TitlebarView.onViewClick() {
@@ -63,18 +69,13 @@ public class ConfirmMnemonicAct extends BaseActivity {
 
             }
         });
-        confirmMnemonicBinding.reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetMnemonic();
-            }
-        });
+        confirmMnemonicBinding.reset.setOnClickListener(v -> resetMnemonic());
         initRecyclerView();
     }
 
     @Override
     protected void initData() {
-        mnemonics = SPUtils.getInstance().getString("mnemonics");
+        mnemonics = SPUtils.getInstance().getString(Constants.SP_MNEMONICS);
         if (!TextUtils.isEmpty(mnemonics)) {
             String[] mnemonicArray = mnemonics.split(" ");
             Collections.addAll(mnemonicData, mnemonicArray);
@@ -116,34 +117,29 @@ public class ConfirmMnemonicAct extends BaseActivity {
                 if (mnemonicImgVisible.size() != 0) {
                     boolean isVisible = mnemonicImgVisible.get(position);
                     holder.getView(R.id.select_index).setVisibility(isVisible ? View.VISIBLE : View.GONE);
-                    //当用户点击1个单词后，重置按钮变可点击状态
-                    setResetEnable(true);
                 }
 
                 holder.setText(R.id.singel_mnemonic, data);
-                holder.getView(R.id.rl_item_mnemonic).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (!mnemonicIsEexist(data)) {
-                            mnemonicSelectData.add(selectIndex, data);
-                            mnemonicImgVisible.add(selectIndex, true);
-                            holder.setImage(R.id.select_index, R.drawable.add_assets);
-                            selectIndex++;
+                holder.getView(R.id.rl_item_mnemonic).setOnClickListener(v -> {
+                    if (!mnemonicIsEexist(data)) {
+                        mnemonicSelectData.add(selectIndex, data);
+                        mnemonicImgVisible.add(selectIndex, true);
+                        holder.setImage(R.id.select_index, iamges[selectIndex]);
+                        selectIndex++;
+                        if (!confirmMnemonicBinding.reset.isEnabled())
+                            //当用户点击1个单词后，重置按钮变可点击状态
+                            setResetEnable(true);
+                    }
+                    if (mnemonicSelectData.size() == 12) {
+                        if (Utils.eqList(mnemonicSelectData, mnemonicData)) {
+                            new KnowDialog(new CenterDialog(R.layout.dlg_messge_warn, ConfirmMnemonicAct.this), () -> {
+                                //执行创建钱包流程
+                                createWallet();
+                            }, getString(R.string.validate_success), getResources().getString(R.string.mnemonic_validate_success));
+                        } else {
+                            confirmMnemonicBinding.mnemonicErrorWarn.setVisibility(View.VISIBLE);
                         }
-                        if (mnemonicSelectData.size() == 12) {
-                            if (Utils.eqList(mnemonicSelectData, mnemonicData)) {
-                                new KnowDialog(new CenterDialog(R.layout.dlg_messge_warn, ConfirmMnemonicAct.this), new KnowDialog.BtnListener() {
-                                    @Override
-                                    public void iKnow() {
-                                        //执行创建钱包流程
-                                        createWallet();
-                                    }
-                                }, getString(R.string.validate_success), getResources().getString(R.string.mnemonic_validate_success));
-                            } else {
-                                confirmMnemonicBinding.mnemonicErrorWarn.setVisibility(View.VISIBLE);
-                            }
 
-                        }
                     }
                 });
             }
@@ -160,7 +156,7 @@ public class ConfirmMnemonicAct extends BaseActivity {
 
     /**
      * 设置重置按钮可点击状态
-     * @param b
+     * @param b 可点击状态
      */
     private void setResetEnable(boolean b) {
         confirmMnemonicBinding.reset.setEnabled(b);
@@ -168,8 +164,8 @@ public class ConfirmMnemonicAct extends BaseActivity {
 
     /**
      * 判断助记词是否存在
-     * @param data
-     * @return
+     * @param data  助记词字符串
+     * @return 助记词存在状态
      */
     private boolean mnemonicIsEexist(String data) {
         for (String mnemonic : mnemonicSelectData) {
@@ -184,14 +180,15 @@ public class ConfirmMnemonicAct extends BaseActivity {
      * 创建钱包
      */
     private void createWallet() {
-        String password = SPUtils.getInstance().getString("password");
+        String password = SPUtils.getInstance().getString(Constants.SP_WALLET_PASSWORD);
         try {
             WalletBean walletBean = WalletManager.shared().generateWallet(password, mnemonics);
             if (walletBean != null) {
-                SPUtils.getInstance().put("walletAddress", walletBean.getAddress());
+                SPUtils.getInstance().put(Constants.SP_WALLET_ADDRESS, walletBean.getAddress());
                 Intent intent = new Intent(ConfirmMnemonicAct.this, MainAct.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+                EventBus.getDefault().post(new WalletAddrEventBean(walletBean.getAddress()));
             } else {
                 ToastUtils.showShort(R.string.wallet_create_fail);
             }
@@ -217,5 +214,6 @@ public class ConfirmMnemonicAct extends BaseActivity {
         if (mnemonicImgVisible.size() != 0) {
             mnemonicImgVisible.clear();
         }
+//        EventBus.getDefault().unregister(this);
     }
 }

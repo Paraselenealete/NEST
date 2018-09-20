@@ -7,6 +7,7 @@ import android.view.View;
 import com.lianer.common.base.BaseActivity;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.nest.R;
+import com.lianer.nest.app.Constants;
 import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.databinding.ActivityWalletManagerBinding;
 import com.lianer.nest.dialog.DeleteDialog;

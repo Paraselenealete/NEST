@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.lianer.common.R;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * fragment的基类
  * @author allison
@@ -85,6 +87,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
 }

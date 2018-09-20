@@ -23,6 +23,9 @@ import com.lianer.nest.invest.InvestFrag;
 import com.lianer.nest.wallet.CreateWalletAct;
 import com.lianer.nest.wallet.WalletFrag;
 import com.lianer.nest.wallet.WalletGuideAct;
+import com.lianer.nest.wallet.bean.WalletAddrEventBean;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;

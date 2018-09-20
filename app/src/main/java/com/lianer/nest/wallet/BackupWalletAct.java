@@ -8,6 +8,7 @@ import com.lianer.common.base.BaseActivity;
 import com.lianer.common.utils.SPUtils;
 import com.lianer.common.utils.ToastUtils;
 import com.lianer.nest.R;
+import com.lianer.nest.app.Constants;
 import com.lianer.nest.custom.CenterDialog;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.databinding.ActivityBackupWalletBinding;
@@ -49,7 +50,7 @@ public class BackupWalletAct extends BaseActivity {
                 inputWalletPswDialog = new InputWalletPswDialog(new CenterDialog(R.layout.dlg_input_wallet_psd, BackupWalletAct.this), new InputWalletPswDialog.BtnListener() {
                     @Override
                     public void sure() {
-                        password = SPUtils.getInstance().getString("password");
+                        password = SPUtils.getInstance().getString(Constants.SP_WALLET_PASSWORD);
                         if (isWalletPsdEquel(password)) {
                             Intent intent = new Intent(BackupWalletAct.this, MnemonicAct.class);
                             startActivity(intent);

@@ -34,7 +34,8 @@
         <activity android:name=".wallet.ImportWalletAct" />
         <activity android:name=".wallet.WalletManagerAct" />
         <activity android:name=".wallet.LanguageSwitchAct" />
-        <activity android:name=".wallet.UpdatePsdAct"></activity>
+        <activity android:name=".wallet.UpdatePsdAct" />
+        <activity android:name=".wallet.AddTokenTypeAct"></activity>
     </application>
 
 </manifest>

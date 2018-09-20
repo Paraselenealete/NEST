@@ -16,35 +16,40 @@ import com.lianer.nest.custom.TitlebarView;
  * @author allison
  */
 public class ContractFrag extends BaseFragment {
-    View mView;
+
+//    private ActivityC
+
+//    @Override
+//    protected void initView(LayoutInflater inflater, ViewGroup container) {
+//        mView = inflater.inflate(R.layout.fragment_contract, null);
+//    }
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_contract, null);
-        return mView;
+        return null;
     }
 
     @Override
     protected void initData() {
         super.initData();
-        TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
-        titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
-            @Override
-            public void leftClick() {
-                Toast.makeText(getContext(),"左边",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void rightTextClick() {
-                Toast.makeText(getContext(),"右边文字",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void rightImgClick() {
-                Toast.makeText(getContext(),"右边",Toast.LENGTH_SHORT).show();
-            }
-
-        });
+//        TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
+//        titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
+//            @Override
+//            public void leftClick() {
+//                Toast.makeText(getContext(),"左边",Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void rightTextClick() {
+//                Toast.makeText(getContext(),"右边文字",Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void rightImgClick() {
+//                Toast.makeText(getContext(),"右边",Toast.LENGTH_SHORT).show();
+//            }
+//
+//        });
     }
 
 }

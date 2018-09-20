@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <com.lianer.nest.custom.TitlebarView
-        android:id="@+id/titlebar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        android:background="@android:color/white"
-        app:centerTitle="@string/wallet"
-        app:rightDrawable="@drawable/setting" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <data></data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.lianer.nest.custom.TitlebarView
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@android:color/white"
+            app:centerTitle="@string/wallet"
+            app:rightDrawable="@drawable/setting" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -25,11 +26,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/wallet_bg"
-                android:scaleType="fitXY"
                 android:layout_marginLeft="@dimen/dp_20"
                 android:layout_marginRight="@dimen/dp_20"
-                />
+                android:scaleType="fitXY"
+                android:src="@drawable/wallet_bg" />
 
             <ImageView
                 android:id="@+id/wallet_logo"
@@ -70,55 +70,52 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:text="0x0Fa6e34E...5E29D96D9d"
-                android:textColor="@color/clr_F5F5F5"
-                android:textSize="14sp"
-                android:drawableEnd="@drawable/copy"
-                android:drawableRight="@drawable/copy"
-                android:drawablePadding="@dimen/dp_10"
-                android:layout_marginTop="@dimen/dp_130"
                 android:layout_marginEnd="@dimen/dp_45"
                 android:layout_marginRight="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_130"
+                android:drawableEnd="@drawable/copy"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableRight="@drawable/copy"
+                android:text="0x0Fa6e34E00000000llllllllllllll00005E29D96D9d"
+                android:textColor="@color/clr_F5F5F5"
+                android:textSize="14sp"
+                android:ellipsize="middle"
+                android:maxEms="15"
+                android:singleLine="true"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/clr_EBEBEB"
                 android:layout_below="@id/wallet_address"
                 android:layout_marginTop="@dimen/dp_10"
-                >
+                android:background="@color/clr_EBEBEB">
 
                 <TextView
+                    android:id="@+id/add_assets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/add_assets"
-                    android:drawableEnd="@drawable/add_assets"
-                    android:text="@string/add_assets"
                     android:layout_gravity="end"
-                    android:drawablePadding="@dimen/dp_10"
-                    android:textColor="@color/clr_059EFF"
-                    android:textSize="12sp"
-                    android:layout_marginRight="@dimen/dp_20"
                     android:layout_marginEnd="@dimen/dp_20"
-                    android:paddingTop="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:drawableEnd="@drawable/add_assets"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:drawableRight="@drawable/add_assets"
                     android:paddingBottom="@dimen/dp_20"
-                    />
+                    android:paddingTop="@dimen/dp_20"
+                    android:text="@string/add_assets"
+                    android:textColor="@color/clr_059EFF"
+                    android:textSize="12sp" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_wallet_assets"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
         </RelativeLayout>
 
+    </LinearLayout>
 
-
-
-    </RelativeLayout>
-
-
-</LinearLayout>
+</layout>

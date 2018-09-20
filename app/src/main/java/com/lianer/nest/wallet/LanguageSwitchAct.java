@@ -41,12 +41,12 @@ public class LanguageSwitchAct extends BaseActivity {
 
             @Override
             public void rightTextClick() {
-
+                selectLanguage(languageType);
             }
 
             @Override
             public void rightImgClick() {
-                selectLanguage(languageType);
+
             }
         });
     }
