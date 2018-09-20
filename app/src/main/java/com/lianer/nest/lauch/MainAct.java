@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lianer.common.utils.language.MultiLanguageUtil;
+import com.lianer.common.utils.qumi.QMUIStatusBarHelper;
 import com.lianer.nest.R;
 import com.lianer.nest.borrow.BorrowFrag;
 import com.lianer.nest.contract.ContractFrag;
@@ -44,7 +45,8 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // 状态栏设置
+        QMUIStatusBarHelper.setStatusBarLightMode(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         initData();
