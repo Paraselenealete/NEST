@@ -46,7 +46,9 @@
             android:layout_height="wrap_content"
             android:text="@string/no_create_wallet_warn"
             android:textColor="@color/clr_111111"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone"
+            />
 
         <TextView
             android:id="@+id/create_wallet"
@@ -56,7 +58,7 @@
             android:layout_marginBottom="@dimen/dp_20"
             android:background="@drawable/gradient_oval_btn"
             android:gravity="center"
-            android:text="@string/create_new_wallet"
+            android:text="@string/create_wallet"
             android:textColor="@color/clr_F5F5F5"
             android:textSize="14sp" />
 

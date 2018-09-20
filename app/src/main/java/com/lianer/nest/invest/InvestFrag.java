@@ -19,6 +19,12 @@ public class InvestFrag extends BaseFragment {
 
     View mView;
 
+//    @Override
+//    protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        mView = inflater.inflate(R.layout.fragment_invest, null);
+//        return mView;
+//    }
+
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_invest, null);
@@ -28,21 +34,21 @@ public class InvestFrag extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
-        TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
-        titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
-            @Override
-            public void leftClick() {
-                Toast.makeText(getContext(),"左边",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void rightTextClick() {
-            }
-
-            @Override
-            public void rightImgClick() {
-            }
-
-        });
+//        TitlebarView titlebarView= mView.findViewById(R.id.titlebar);
+//        titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
+//            @Override
+//            public void leftClick() {
+//                Toast.makeText(getContext(),"左边",Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void rightTextClick() {
+//            }
+//
+//            @Override
+//            public void rightImgClick() {
+//            }
+//
+//        });
     }
 }

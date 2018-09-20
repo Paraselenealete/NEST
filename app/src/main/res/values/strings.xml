@@ -34,7 +34,7 @@
     <string name="no_create_wallet">您还没有创建钱包</string>
     <string name="no_create_wallet_warn">请您创建或导入钱包后继续使用NEST的投资与借币服务</string>
     <string name="create_new_wallet">创建新的钱包</string>
-    <string name="import_wallet">导入已有的钱包</string>
+    <string name="import_wallet">导入钱包</string>
     <string name="create_wallet_warn_1">* 密码用于保护您的私钥以及交易授权，强度非常重要</string>
     <string name="create_wallet_warn_2">* NEST 不存储任何用户密码，也无法帮忙找回，请务必记牢</string>
     <string name="set_password">请设置密码</string>
@@ -57,10 +57,27 @@
     <string name="validate_mnemonic">请验证您的助记词</string>
     <string name="confirm_mnemonic_warn">为了确保您的助记词备份正确，请按照抄写顺序点击助记词</string>
     <string name="reset">重置</string>
-    <string name="impor_wallet">导入钱包</string>
     <string name="add_assets">添加资产</string>
     <string name="select_index">选择索引</string>
     <string name="wallet_create_fail">钱包创建失败</string>
+    <string name="mnemonic_validate_error">验证失败，请确认您的助记词顺序是否正确</string>
+    <string name="mnemonic_validate_success">验证成功，请妥善保管好好您的助记词</string>
+    <string name="validate_success">验证成功</string>
+    <string name="wallet_manager">钱包管理</string>
+    <string name="update_psd">修改密码</string>
+    <string name="other_setting">其他设置</string>
+    <string name="export_keystore">导出 Keystore</string>
+    <string name="language_switch">多语言选择</string>
+    <string name="simplified_chinese">简体中文</string>
+    <string name="delete_wallet">删除钱包</string>
+    <string name="sure_delete_wallet">确定删除钱包</string>
+    <string name="delete_wallet_warn">此操作无法撤销！\n删除后可以重新输入，请确保您已备份好钱包</string>
+    <string name="delete">删除</string>
+    <string name="english">English</string>
+    <string name="complete">完成</string>
+    <string name="language_setting">多语言设置</string>
+    <string name="second_psd_not_match">两次密码不一致</string>
+    <string name="please_input_token">请输入合约地址或Token名称</string>
 
     <string name="input_keystore_password">请输入Keystore密码</string>
     <string name="input_keystore_hint">请直接复制Keystore文件内容至输入框</string>
