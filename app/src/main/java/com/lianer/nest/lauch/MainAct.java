@@ -13,7 +13,10 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.lianer.common.utils.language.MultiLanguageUtil;
 import com.lianer.common.utils.qumi.QMUIStatusBarHelper;
 import com.lianer.nest.R;
@@ -56,6 +59,21 @@ public class MainAct extends FragmentActivity implements View.OnClickListener {
         initClick();
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // 获取解析结果
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "取消扫描", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "扫描内容:" + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 
     private void initClick() {
         binding.lyFirst.setOnClickListener(this);

@@ -84,10 +84,5 @@ public abstract class BaseFragment extends Fragment {
         mActivity.overridePendingTransition(R.anim.tooltip_enter, 0);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
 
 }

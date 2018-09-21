@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
 import com.lianer.common.base.BaseFragment;
 import com.lianer.common.base.QuickAdapter;
 import com.lianer.common.utils.SPUtils;
@@ -45,6 +46,15 @@ public class WalletFrag extends BaseFragment {
 //        walletBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_wallet, container, false);
         mView = inflater.inflate(R.layout.fragment_wallet, null);
         EventBus.getDefault().register(this);
+        mView.findViewById(R.id.QRcode_scan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 创建IntentIntegrator对象
+                IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
+                // 开始扫描
+                intentIntegrator.initiateScan();
+            }
+        });
         return mView;
     }
 

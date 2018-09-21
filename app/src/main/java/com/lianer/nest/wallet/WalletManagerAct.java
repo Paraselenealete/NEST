@@ -40,6 +40,13 @@ public class WalletManagerAct extends BaseActivity {
                 deleteWallet();
             }
         });
+        //导出keystore
+        walletManagerBinding.exportKeystore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exportKeystore();
+            }
+        });
     }
 
     /**
@@ -47,6 +54,14 @@ public class WalletManagerAct extends BaseActivity {
      */
     private void navigateToLanguage() {
         Intent intent = new Intent(WalletManagerAct.this, LanguageSwitchAct.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 跳转到导出keystore页面
+     */
+    private void exportKeystore() {
+        Intent intent = new Intent(WalletManagerAct.this, ExportKeystoreActivity.class);
         startActivity(intent);
     }
 

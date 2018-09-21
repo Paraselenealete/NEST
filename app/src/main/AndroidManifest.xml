@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.lianer.nest">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -33,10 +34,18 @@
         <activity android:name=".wallet.MnemonicAct" />
         <activity android:name=".wallet.ConfirmMnemonicAct" />
         <activity android:name=".wallet.ImportWalletAct" />
+        <activity android:name=".wallet.ExportKeystoreActivity" />
         <activity android:name=".wallet.WalletManagerAct" />
         <activity android:name=".wallet.LanguageSwitchAct" />
         <activity android:name=".wallet.UpdatePsdAct" />
         <activity android:name=".wallet.AddTokenTypeAct"></activity>
+
+        <!-- 调整二维码扫描界面为竖屏 -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
+
     </application>
 
 </manifest>

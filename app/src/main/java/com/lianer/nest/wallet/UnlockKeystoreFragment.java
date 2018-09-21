@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.lianer.nest.R;
 import com.lianer.nest.config.Tag;
 import com.lianer.nest.custom.TitlebarView;
 import com.lianer.nest.lauch.MainAct;
+import com.lianer.nest.manager.HLWalletManager;
 import com.lianer.nest.manager.InitWalletManager;
 import com.lianer.nest.model.HLWallet;
 import com.lianer.nest.stuff.HLError;
@@ -79,6 +81,9 @@ public class UnlockKeystoreFragment extends BaseFragment implements View.OnClick
                                 .delay(2000, TimeUnit.MILLISECONDS)
                                 .compose(ScheduleCompat.apply())
                                 .subscribe(integer -> {
+
+                                    HLWallet currentWallet = HLWalletManager.shared().getCurrentWallet(getContext());
+                                    Log.w("wallet",currentWallet.getAddress());
                                     startActivity(new Intent(getActivity(),MainAct.class).putExtra(Tag.INDEX,1));
                                     getActivity().finish();
                                 });

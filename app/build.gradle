@@ -44,5 +44,7 @@ dependencies {
     implementation 'io.github.novacrypto:BIP44:0.0.3'
     implementation 'com.lhalcyon:bip32:1.0.0'
     implementation 'io.github.novacrypto:BIP39:0.1.9'
-    implementation files('lib/scrypt-1.4.0.jar')
+    implementation 'com.lambdaworks:scrypt:1.4.0'
+
+    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
 }

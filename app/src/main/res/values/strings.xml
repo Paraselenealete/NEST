@@ -85,6 +85,18 @@
     <string name="input_mnemonic_hint">请输入助记词，并按空格分隔单词</string>
     <string name="agreement_1">我已经阅读并同意</string>
     <string name="agreement_2">用户服务协议及隐私条款</string>
+    <string name="keystore_file">Keystore 文件</string>
+    <string name="QR_code">二维码</string>
+    <string name="save_offline">离线保存</string>
+    <string name="save_prompt">请将 Keystore 文件复制到安全、离线的地方保存\n请不要把 Keystore 文件保存到记事本、邮箱、网盘、聊天工具\n等，会有很大风险</string>
+    <string name="not_use_network_transmission">请不要使用网络传输</string>
+    <string name="transmission_prompt">请不要通过网络工具传输 Keystore 文件，若被黑客获取将会对您\n造成不可挽回的损失\n建议使用离线设备，通过扫描二维码的方式</string>
+    <string name="password_safe">密码保险箱</string>
+    <string name="safe_prompt">建议使用安全等级更高的密码管理工具来保存 Keystore 文件</string>
+    <string name="copy_keystore">复制 Keystore</string>
+    <string name="safe_scan">请在安全环境下扫描</string>
+    <string name="scan_prompt">请确保四周无人及摄像头\n二维码禁止保存、截图、拍照\n仅限在安全环境下使用，二维码一旦被他人获取将会对您的资\n产造成不可挽回的损失</string>
+    <string name="show_qr_code">显示二维码</string>
     <!--钱包-->
 
 </resources>

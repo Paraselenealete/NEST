@@ -23,6 +23,13 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * <pre>
+ * Create by  :    L
+ * Create Time:    2018/6/22
+ * Brief Desc :
+ * </pre>
+ */
 public class LWallet {
 
     private static final int N_LIGHT = 1 << 12;
